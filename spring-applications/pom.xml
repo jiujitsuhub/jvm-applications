@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.3</version>
+    </parent>
+    <packaging>pom</packaging>
+    <groupId>com.myjiujitsuacademy.common</groupId>
+    <artifactId>parent</artifactId>
+    <version>2.0.1</version>
+    <name>spring-boot-parent</name>
+    <description>parent for spring boot projects</description>
+
+    <properties>
+        <!-- Implementation Dependencies -->
+        <java.version>11</java.version>
+        <springdoc-openapi-ui.version>1.6.11</springdoc-openapi-ui.version>
+        <httpclient.version>4.5.13</httpclient.version>
+
+        <!-- Test dependencies -->
+        <spock-spring.version>2.2-groovy-4.0</spock-spring.version>
+        <spock-core.version>2.2-groovy-3.0</spock-core.version>
+
+        <!-- Spock reports -->
+        <spock-reports.version>2.3.1-groovy-3.0</spock-reports.version>
+
+        <!-- Plugins -->
+        <gmavenplus-plugin.version>1.13.1</gmavenplus-plugin.version>
+
+
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.myjiujitsuacademy.common</groupId>
+            <artifactId>domain</artifactId>
+            <version>6.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.myjiujitsuacademy.common</groupId>
+                    <artifactId>parent</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Implementation Dependencies -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc-openapi-ui.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Test dependencies -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <scope>test</scope>
+            <version>${httpclient.version}</version>
+        </dependency>
+
+        <!-- Groovy & Spock dependencies -->
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-spring</artifactId>
+            <version>${spock-spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.spockframework</groupId>
+            <artifactId>spock-core</artifactId>
+            <version>${spock-core.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Spock reports       -->
+        <dependency>
+            <groupId>com.athaydes</groupId>
+            <artifactId>spock-reports</artifactId>
+            <version>${spock-reports.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+</project>

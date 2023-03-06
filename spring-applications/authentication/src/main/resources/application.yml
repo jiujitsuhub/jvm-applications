@@ -1,0 +1,37 @@
+spring:
+  h2:
+    console:
+      # with console enabled you could access the database via your browser,
+      # but for this feature to work 2 things are required:
+      #   1.spring-boot starter-web dependency
+      #   2.uncomment the datasource.url
+      enabled: true
+  datasource:
+    platform: org.hibernate.dialect.H2Dialect
+    url: jdbc:h2:mem:test
+  jpa:
+    hibernate:
+      # we create our schema in schema.sql under resources folder and with ddl-auto:validate option our schema is validated.
+      # Development tip: ddl-auto:create-drop option is really handy, because the schema is created on the fly. Once it is finalized
+      # you can generate the schema creation scripts with "SCRIPT NODATA" SQL command paste it to schema.sql and change this option to validate
+      ddl-auto: validate
+
+server:
+  port: 8080 # This is the default port anyway, but you can change it here
+
+jwt:
+  token:
+    secret-key: secret-key
+    expire-length: 3000000 # 10 minutes duration by default: 5 minutes * 60 seconds * 1000 miliseconds
+
+domain:
+  name: myjiujitsuacademy.com
+
+
+management:
+  endpoints:
+    metrics:
+      enabled: true
+    web:
+      exposure:
+        include: '*'
